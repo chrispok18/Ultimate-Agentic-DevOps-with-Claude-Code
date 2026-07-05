@@ -1,0 +1,1 @@
+- [Portfolio-site Terraform context](project_portfolio_site_terraform.md) — IAM/OIDC role isn't codified in terraform/, and region/bucket names in vars drift from the live GitHub Actions workflow.
