@@ -34,6 +34,17 @@
           }
         ]
       }
+    ],
+   "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import sys, json, datetime\ndata = json.load(sys.stdin)\ncmd = data.get('tool_input', {}).get('command', '')\nif 'terraform fmt' in cmd or 'terraform validate' in cmd:\n    with open('.claude/deploy.log', 'a') as f:\n        f.write(f'[{datetime.datetime.utcnow().isoformat()}Z] Terraform command executed: {cmd}\\n')\n\""
+          }
+        ]
+      }
     ]
   }
 }
